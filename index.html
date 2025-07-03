@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin Value Identifier | AI-Powered Coin Scanner & Checker | iOS</title>
+  <meta name="description" content="Coin Value Identifier uses AI to instantly identify coins and provide detailed information including value, weight, composition, and melt value. The ultimate coin app for collectors and enthusiasts.">
+  <meta name="keywords" content="coin identifier, coin app, coin scanner, coin checker, coin value, AI coin identification, coin collection, numismatic app, coin database">
+  <meta name="author" content="Mobile Card Games & Travel Apps LLC">
+  <meta name="robots" content="index, follow">
+  <meta name="apple-itunes-app" content="app-id=6746510305">
+  <link rel="canonical" href="https://mobilegames.cloud/coins/index.html">
+  <link rel="icon" href="images/app-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/app-icon.png">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mobilegames.cloud/coins/index.html">
+  <meta property="og:image" content="https://mobilegames.cloud/coins/images/app-icon.png">
+  <meta property="og:title" content="Coin Value Identifier | AI-Powered Coin Scanner">
+  <meta property="og:description" content="Snap a photo, identify instantly, and manage your growing coin collection with AI-powered identification and up-to-date spot prices.">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://mobilegames.cloud/coins/index.html">
+  <meta property="twitter:image" content="https://mobilegames.cloud/coins/images/app-icon.png">
+  <meta property="twitter:title" content="Coin Value Identifier | AI-Powered Coin Scanner">
+  <meta property="twitter:description" content="Snap a photo, identify instantly, and manage your growing coin collection with AI-powered identification and up-to-date spot prices.">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Coin Value Identifier",
+    "operatingSystem": "iOS",
+    "applicationCategory": "UtilitiesApplication, CollectiblesApplication",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "250"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },
+    "screenshot": [
+      "https://mobilegames.cloud/coins/images/screenshot1.png",
+      "https://mobilegames.cloud/coins/images/screenshot2.png",
+      "https://mobilegames.cloud/coins/images/screenshot3.png"
+    ],
+    "url": "https://apps.apple.com/app/apple-store/id6746510305",
+    "description": "AI-powered coin identification app that instantly identifies coins and provides detailed information including value, weight, composition, and melt value for collectors and enthusiasts.",
+    "applicationSubCategory": "Collectibles",
+    "datePublished": "2024-12-01"
+  }
+  </script>
+  
+  <style>
+    /* Reset and Base Styles */
+    :root {
+      --primary-gold: #FFD700;
+      --primary-silver: #C0C0C0;
+      --dark-gold: #B8860B;
+      --dark-silver: #A0A0A0;
+      --bronze: #CD7F32;
+      --dark-text: #2C1810;
+      --gray-text: #5D4E37;
+      --light-gray: #F5F5DC;
+      --white: #ffffff;
+      --accent-gold: #FFA500;
+      --accent-hover: #FF8C00;
+      --rounded: 12px;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+      --gold-gradient: linear-gradient(135deg, #FFD700, #FFA500);
+      --silver-gradient: linear-gradient(135deg, #C0C0C0, #A0A0A0);
+    }
+    
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
+    body { 
+      font-family: 'Open Sans', sans-serif; 
+      line-height: 1.6; 
+      color: var(--dark-text); 
+      background: var(--white); 
+    }
+    
+    html { 
+      scroll-behavior: smooth; 
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    /* Header Styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: linear-gradient(90deg, rgba(255, 215, 0, 0.95), rgba(192, 192, 192, 0.95));
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      height: 70px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo img {
+      height: 56px;
+      border-radius: 12px;
+    }
+    
+    .logo h1 {
+      font-size: 1.25rem;
+      margin: 0;
+      font-weight: 600;
+      color: var(--dark-text);
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      font-weight: 500;
+      transition: color 0.2s ease;
+      color: var(--dark-text);
+    }
+    
+    .nav-links a:hover {
+      color: var(--dark-gold);
+    }
+    
+    .app-cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--rounded);
+      font-weight: 600;
+      transition: all 0.2s ease;
+      font-size: 1rem;
+      gap: 0.5rem;
+    }
+    
+    .btn-primary {
+      background: var(--gold-gradient);
+      color: var(--dark-text);
+      border: 2px solid var(--dark-gold);
+    }
+    
+    .btn-primary:hover {
+      background: var(--dark-gold);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: var(--silver-gradient);
+      color: var(--dark-text);
+      border: 2px solid var(--dark-silver);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--dark-silver);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    
+    .get-app-btn, .qr-button, .qr-button-top {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      background: var(--gold-gradient);
+      color: var(--dark-text);
+      border: 2px solid var(--dark-gold);
+      border-radius: var(--rounded);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      gap: 0.5rem;
+    }
+    
+    .get-app-btn:hover, .qr-button:hover, .qr-button-top:hover {
+      background: var(--dark-gold);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    
+    /* QR Popup Styles */
+    .qr-popup {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background-color: var(--white);
+      border-radius: var(--rounded);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 10;
+      width: 180px;
+      text-align: center;
+    }
+    
+    .qr-popup-top {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--white);
+      border-radius: var(--rounded);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 10;
+      width: 180px;
+      text-align: center;
+    }
+    
+    /* Only show QR popups on desktop/hover-capable devices */
+    @media (hover: hover) {
+      .get-app-btn:hover .qr-popup, 
+      .qr-button:hover .qr-popup, 
+      .qr-button-top:hover .qr-popup-top {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    
+    /* Explicitly hide QR popups on touch devices regardless of interaction */
+    @media (hover: none) {
+      .qr-popup, .qr-popup-top {
+        display: none !important;
+      }
+    }
+    
+    .qr-popup img, .qr-popup-top img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .qr-popup p, .qr-popup-top p {
+      color: var(--dark-text);
+      font-size: 0.875rem;
+      margin-bottom: 0;
+    }
+    
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      color: var(--dark-text);
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 8rem 0 5rem;
+      background: linear-gradient(135deg, var(--primary-gold), var(--primary-silver), var(--bronze));
+      color: var(--dark-text);
+      position: relative;
+    }
+    
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+    }
+    
+    .hero-text {
+      flex: 1;
+    }
+    
+    .hero h1 {
+      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .hero-tagline {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    
+    .rating {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--dark-gold);
+    }
+    
+    .rating i {
+      color: var(--primary-gold);
+      margin-right: 2px;
+    }
+    
+    .hero-benefits {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+    
+    .hero-benefits li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .hero-benefits i {
+      color: var(--dark-gold);
+      font-size: 1.25rem;
+    }
+    
+    .hero-image {
+      flex: 1;
+      position: relative;
+      text-align: center;
+      max-width: 360px;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 10;
+    }
+    
+    /* How It Works Section */
+    .how-it-works {
+      padding: 6rem 0;
+      background-color: var(--light-gray);
+    }
+    
+    .section-heading {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+    
+    .section-heading h2 {
+      margin-bottom: 1rem;
+      color: var(--dark-gold);
+      font-size: 2rem;
+    }
+    
+    .section-heading p {
+      font-size: 1.125rem;
+      color: var(--gray-text);
+    }
+    
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .step {
+      flex: 1 1 300px;
+      text-align: center;
+      position: relative;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+      border: 2px solid var(--primary-silver);
+    }
+    
+    .step:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-gold);
+    }
+    
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--gold-gradient);
+      color: var(--dark-text);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      font-weight: bold;
+      border: 2px solid var(--dark-gold);
+    }
+    
+    .step h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: var(--dark-gold);
+    }
+    
+    .step p {
+      color: var(--gray-text);
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 6rem 0;
+      background: var(--silver-gradient);
+      border-radius: 24px;
+      margin: 3rem 0;
+    }
+    
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .feature-item {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--rounded);
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 2px solid var(--primary-silver);
+    }
+    
+    .feature-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary-gold);
+    }
+    
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gold-gradient);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      color: var(--dark-text);
+      border: 2px solid var(--dark-gold);
+    }
+    
+    .feature-item h3 {
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      color: var(--dark-gold);
+    }
+    
+    .feature-item p {
+      font-size: 1rem;
+      color: var(--gray-text);
+      margin-bottom: 15px;
+    }
+    
+    .feature-item a {
+      color: var(--dark-gold);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .feature-item a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      padding: 6rem 0;
+      background: var(--light-gray);
+      border-radius: 24px;
+      margin: 3rem 0;
+    }
+    
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .testimonial {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow);
+      text-align: left;
+      position: relative;
+      border: 2px solid var(--primary-silver);
+    }
+    
+    .testimonial-content {
+      font-style: italic;
+      margin-bottom: 20px;
+      color: var(--gray-text);
+    }
+    
+    .testimonial-stars {
+      color: var(--primary-gold);
+      margin-bottom: 5px;
+    }
+    
+    .testimonial-user {
+      display: flex;
+      align-items: center;
+    }
+    
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+      background: var(--gold-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--dark-text);
+      border: 2px solid var(--dark-gold);
+    }
+    
+    .testimonial-name {
+      font-weight: 600;
+      color: var(--dark-gold);
+    }
+    
+    .testimonial-title {
+      font-size: 0.9rem;
+      color: var(--gray-text);
+    }
+    
+    .users-count {
+      margin-top: 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--dark-text);
+      background: var(--gold-gradient);
+      padding: 10px 20px;
+      border-radius: 30px;
+      display: inline-block;
+      text-align: center;
+      border: 2px solid var(--dark-gold);
+    }
+    
+    /* Screenshots Section */
+    .screenshots {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+    
+    .screenshots-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .screenshots-slider {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding: 1.5rem 0;
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      padding-bottom: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .screenshots-slider::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .screenshot-item {
+      flex: 0 0 auto;
+      width: 270px;
+      transition: transform 0.3s ease;
+    }
+    
+    .screenshot-item:hover {
+      transform: scale(1.05);
+    }
+    
+    .screenshot-item img {
+      width: 100%;
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow);
+      border: 2px solid var(--primary-silver);
+    }
+    
+    .screenshots-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    .screenshot-nav-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gold-gradient);
+      color: var(--dark-text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 2px solid var(--dark-gold);
+    }
+    
+    .screenshot-nav-btn:hover {
+      background: var(--dark-gold);
+      color: var(--white);
+    }
+    
+    .swipe-hint {
+      display: none;
+      text-align: center;
+      color: var(--gray-text);
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+    
+    /* SMS Section */
+    .sms-section {
+      background: var(--light-gray);
+      border-radius: var(--rounded);
+      padding: 3rem;
+      margin: 3rem 0;
+      text-align: center;
+      border: 2px solid var(--primary-silver);
+    }
+    
+    .sms-section h3 {
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      color: var(--dark-gold);
+    }
+    
+    .sms-intro {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+      color: var(--gray-text);
+    }
+    
+    .sms-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .sms-form input[type="tel"] {
+      padding: 16px;
+      border: 2px solid var(--primary-silver);
+      border-radius: 30px;
+      font-size: 1rem;
+      background: var(--white);
+    }
+    
+    .sms-form input[type="tel"]:focus {
+      border-color: var(--primary-gold);
+      outline: none;
+    }
+    
+    .sms-form input[type="submit"] {
+      padding: 16px;
+      border: 2px solid var(--dark-gold);
+      border-radius: 30px;
+      background: var(--gold-gradient);
+      color: var(--dark-text);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .sms-form input[type="submit"]:hover {
+      background: var(--dark-gold);
+      color: var(--white);
+      transform: scale(1.05);
+    }
+    
+    .consent-text {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: var(--gray-text);
+      text-align: left;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: var(--gold-gradient);
+      border-radius: 24px;
+      padding: 4rem 3rem;
+      margin: 3rem 0;
+      text-align: center;
+      color: var(--dark-text);
+      border: 3px solid var(--dark-gold);
+    }
+    
+    .cta-section h2 {
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .cta-section p {
+      margin-bottom: 2rem;
+      font-size: 1.125rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Override for QR popup text in CTA section */
+    .cta-section .qr-popup-top p {
+      color: var(--dark-text);
+      font-size: 0.875rem;
+      margin-bottom: 0;
+      text-shadow: none;
+    }
+    
+    /* CTA Button styling for contrast */
+    .cta-button {
+      background: var(--white) !important;
+      color: var(--dark-text) !important;
+      border: 3px solid var(--dark-text) !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .cta-button:hover {
+      background: var(--dark-text) !important;
+      color: var(--white) !important;
+      border-color: var(--dark-text) !important;
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    footer {
+      padding: 30px 20px;
+      background: linear-gradient(135deg, var(--dark-text), var(--gray-text));
+      color: var(--white);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      text-align: left;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-logo img {
+      height: 40px;
+      border-radius: 10px;
+    }
+    
+    .footer-logo h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0;
+      color: var(--primary-gold);
+    }
+    
+    .footer-about p {
+      margin-bottom: 1.5rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: var(--gold-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark-text);
+      transition: all 0.2s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--dark-gold);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    
+    .footer-links h3 {
+      font-size: 1.125rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-gold);
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links ul li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links ul li a {
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.2s ease;
+    }
+    
+    .footer-links ul li a:hover {
+      color: var(--primary-gold);
+      padding-left: 0.25rem;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.875rem;
+    }
+    
+    /* Sticky CTA for Mobile */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: var(--gold-gradient);
+      padding: 15px;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+      z-index: 100;
+      text-align: center;
+      border-top: 3px solid var(--dark-gold);
+    }
+    
+    .sticky-cta a {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--dark-gold);
+      color: var(--white);
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      width: 80%;
+      max-width: 300px;
+    }
+    
+    /* Responsive Styles */
+    @media screen and (max-width: 992px) {
+      .hero-content {
+        flex-direction: column;
+      }
+      
+      .hero-text, .hero-image {
+        max-width: 100%;
+      }
+      
+      .feature-list {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .testimonials-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--gold-gradient);
+        padding: 1.5rem;
+        flex-direction: column;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .app-cta {
+        display: none;
+      }
+      
+      .hamburger {
+        display: block;
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 2.25rem;
+      }
+      
+      h2 {
+        font-size: 1.75rem;
+      }
+      
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .steps {
+        flex-direction: column;
+      }
+      
+      .sms-form {
+        flex-direction: column;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+      }
+    }
+    
+    @media screen and (max-width: 576px) {
+      .section-heading h2 {
+        font-size: 1.5rem;
+      }
+      
+      .screenshots-slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding-bottom: 15px;
+      }
+      
+      .screenshot-item {
+        scroll-snap-align: center;
+        min-width: 220px;
+      }
+      
+      .swipe-hint {
+        display: block;
+      }
+      
+      .sticky-cta {
+        display: block;
+      }
+      
+      .cta-section, .sms-section {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="nav-container">
+        <div class="logo">
+          <img src="images/app-icon.png" alt="Coin Value Identifier App Icon">
+          <h1>Coin Value Identifier</h1>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#screenshots">Screenshots</a></li>
+          </ul>
+        </nav>
+        <div class="app-cta">
+          <a href="javascript:void(0)" onclick="scrollToSMS()" class="btn btn-secondary">Text me the Link</a>
+          <a href="https://apps.apple.com/app/apple-store/id6746510305?pt=649248&ct=mobilecloudlandingpage&mt=8" class="get-app-btn">
+            <i class="fab fa-apple"></i> Get Free App
+            <div class="qr-popup">
+              <img src="images/qrcode.png" alt="App Store QR Code">
+              <p>Scan to download</p>
+            </div>
+          </a>
+        </div>
+        <div class="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.8/5 on the App Store
+          </div>
+          <h1>AI-Powered Coin Value Identifier</h1>
+          <p class="hero-tagline">Snap a photo, identify instantly, and manage your growing collection with the ultimate coin app for collectors and enthusiasts</p>
+          <ul class="hero-benefits">
+            <li><i class="fas fa-coins"></i> AI-powered coin scanner and checker technology</li>
+            <li><i class="fas fa-search-dollar"></i> Instant coin value and melt value calculations</li>
+            <li><i class="fas fa-database"></i> Built-in database of gold and silver coins</li>
+          </ul>
+          <div class="hero-cta">
+            <a href="https://apps.apple.com/app/apple-store/id6746510305?pt=649248&ct=mobilecloudlandingpage&mt=8" class="btn btn-primary qr-button-top">
+              <i class="fab fa-apple"></i> Get Free App
+              <div class="qr-popup-top">
+                <img src="images/qrcode.png" alt="App Store QR Code">
+                <p>Scan to download</p>
+              </div>
+            </a>
+            <a href="javascript:void(0)" onclick="scrollToSMS()" class="btn btn-secondary">Text Me the Link</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="images/app-icon.png" alt="Coin Value Identifier App - AI-Powered Coin Scanner Interface">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="section-heading">
+        <h2>How It Works</h2>
+        <p>Three simple steps to identify any coin value</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Snap</h3>
+          <p>Take a photo of your coin with the built-in coin scanner. Our AI coin identifier works with any coin, anywhere</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Identify</h3>
+          <p>Get instant results with our coin checker including name, year, mint mark, weight, composition, and current coin value</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Manage</h3>
+          <p>Track your collection with portfolio management and up-to-date spot prices for gold and silver coins</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots Section -->
+  <section class="screenshots" id="screenshots">
+    <div class="container">
+      <div class="section-heading">
+        <h2>App Screenshots</h2>
+        <p>See the coin identifier app in action</p>
+      </div>
+      <div class="screenshots-container">
+        <div class="screenshots-slider">
+          <div class="screenshot-item">
+            <img src="images/0x0ss-1.png" alt="Coin Value Identifier App - AI Scanner Interface">
+          </div>
+          <div class="screenshot-item">
+            <img src="images/0x0ss-2.png" alt="Coin Value Identifier App - Coin Detection Results">
+          </div>
+          <div class="screenshot-item">
+            <img src="images/0x0ss-3.png" alt="Coin Value Identifier App - Coin Details Screen">
+          </div>
+          <div class="screenshot-item">
+            <img src="images/0x0ss-4.png" alt="Coin Value Identifier App - Portfolio Management">
+          </div>
+          <div class="screenshot-item">
+            <img src="images/0x0ss-5.png" alt="Coin Value Identifier App - Collection Overview">
+          </div>
+          <div class="screenshot-item">
+            <img src="images/0x0ss-6.png" alt="Coin Value Identifier App - Coin Value Analysis">
+          </div>
+          <div class="screenshot-item">
+            <img src="images/0x0ss-7.png" alt="Coin Value Identifier App - Premium Features">
+          </div>
+          <div class="screenshot-item">
+            <img src="images/0x0ss-8.png" alt="Coin Value Identifier App - Settings Panel">
+          </div>
+          <div class="screenshot-item">
+            <img src="images/0x0ss-9.png" alt="Coin Value Identifier App - Search Function">
+          </div>
+        </div>
+        <div class="screenshots-nav">
+          <div class="screenshot-nav-btn screenshot-prev">
+            <i class="fas fa-arrow-left"></i>
+          </div>
+          <div class="screenshot-nav-btn screenshot-next">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="swipe-hint">
+          <i class="fas fa-hand-point-right"></i> Swipe to see more screenshots
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Key Features</h2>
+        <p>Everything you need for coin identification and collection management</p>
+      </div>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-robot"></i></div>
+          <h3>AI-Powered Identification</h3>
+          <p>Advanced AI coin scanner technology instantly identifies coins from photos with incredible accuracy. Works as a reliable coin checker for any collection.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-coins"></i></div>
+          <h3>Comprehensive Coin Database</h3>
+          <p>Built-in database of gold and silver coins with detailed information including weight, composition, year, and mint mark data.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Real-Time Coin Value</h3>
+          <p>Get current coin value estimates and melt values with up-to-date spot prices for gold and silver coins. Perfect for valuation and investment tracking.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-briefcase"></i></div>
+          <h3>Portfolio Management</h3>
+          <p>Track your entire coin collection with our portfolio feature. Monitor values, organize by category, and manage your numismatic investments.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Multi-Platform Support</h3>
+          <p>Available on iPhone, iPad, Mac, and Apple Vision Pro. Your coin identifier app works seamlessly across all your devices.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-crown"></i></div>
+          <h3>Pro Features</h3>
+          <p>Upgrade to Pro for unlimited AI identifications, unlimited portfolio entries, and an ad-free coin scanner experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-heading">
+        <h2>What Collectors Say</h2>
+        <p>Join thousands of satisfied coin enthusiasts and collectors</p>
+      </div>
+      <div class="testimonials-container">
+        <div class="testimonial">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-content">"This coin app is incredible! The AI coin scanner identified my old silver dollars perfectly and gave me exact melt values. As a coin collector, this is exactly what I needed."</p>
+          <div class="testimonial-user">
+            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+            <div>
+              <div class="testimonial-name">Robert K.</div>
+              <div class="testimonial-title">Coin Collector</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-content">"The coin identifier feature is spot-on every time. I love how it shows the coin value and all the details like mint mark and composition. Best coin checker app I've used!"</p>
+          <div class="testimonial-user">
+            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+            <div>
+              <div class="testimonial-name">Sarah M.</div>
+              <div class="testimonial-title">Numismatist</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-content">"Perfect for managing my coin collection. The portfolio feature tracks everything and the up-to-date spot prices help me know my investment value. Highly recommended!"</p>
+          <div class="testimonial-user">
+            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+            <div>
+              <div class="testimonial-name">David L.</div>
+              <div class="testimonial-title">Coin Investor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="users-count">
+        <i class="fas fa-users"></i> Join 1,000+ coin collectors and enthusiasts worldwide
+      </div>
+    </div>
+  </section>
+
+  <!-- SMS Section -->
+  <div class="container">
+    <section class="sms-section" id="sms">
+      <h3>Get the Coin App Link via SMS</h3>
+      <p class="sms-intro">Enter your mobile number and we'll send you a direct download link to try the coin identifier app today</p>
+      <form id="smsForm" class="sms-form" aria-label="SMS app link request form">
+        <input type="tel" name="phone" placeholder="Enter your mobile number" required aria-label="Your mobile phone number">
+        <input type="submit" value="Send Me the Coin App">
+        <p class="consent-text">
+          By clicking "Send Me the Coin App", you consent to receive a one-time SMS message with your app download link. Message & data rates may apply. Reply HELP for help, STOP to cancel. Your consent is not required as a condition to purchase.
+        </p>
+      </form>
+    </section>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="container">
+    <section class="cta-section" id="download">
+      <h2>Ready to Identify Your Coins?</h2>
+      <p>Download the ultimate coin value identifier app today and start discovering the true value of your collection with AI-powered coin scanning technology.</p>
+      <a href="https://apps.apple.com/app/apple-store/id6746510305?pt=649248&ct=mobilecloudlandingpage&mt=8" class="btn qr-button-top cta-button">
+        <i class="fab fa-apple"></i> Get Free Coin App
+        <div class="qr-popup-top">
+          <img src="images/qrcode.png" alt="App Store QR Code">
+          <p>Scan to download</p>
+        </div>
+      </a>
+    </section>
+  </div>
+
+  <!-- Sticky CTA for Mobile -->
+  <div class="sticky-cta">
+    <a href="https://apps.apple.com/app/apple-store/id6746510305?pt=649248&ct=mobilecloudlandingpage&mt=8" target="_blank" rel="noopener noreferrer">
+      <i class="fas fa-download"></i> Get Free Coin App
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="images/app-icon.png" alt="Coin Value Identifier Logo">
+            <h2>Coin Value Identifier</h2>
+          </div>
+          <p>The ultimate AI-powered coin identifier app for collectors and enthusiasts. Snap a photo, identify instantly, and manage your growing collection with precision and ease.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="https://www.privacypolicies.com/generic/">Privacy Policy</a></li>
+            <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Support</h3>
+          <ul>
+            <li>Email: <code>v5cqpsj4e3u4 @ opayq dot com</code></li>
+            <li><a href="https://support.apple.com/en-us/118428">Cancel Subscription</a></li>
+            <li><a href="https://support.apple.com/en-us/118223">Request Refund</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Mobile Card Games & Travel Apps LLC. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    
+    // Screenshots navigation
+    const screenshotsSlider = document.querySelector('.screenshots-slider');
+    const prevButton = document.querySelector('.screenshot-prev');
+    const nextButton = document.querySelector('.screenshot-next');
+    
+    prevButton.addEventListener('click', () => {
+      screenshotsSlider.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+    
+    nextButton.addEventListener('click', () => {
+      screenshotsSlider.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+    
+    // Function to scroll to SMS section
+    function scrollToSMS() {
+      const smsSection = document.getElementById('sms');
+      const headerHeight = document.querySelector('header').offsetHeight;
+      const smsPosition = smsSection.getBoundingClientRect().top + window.pageYOffset;
+      
+      window.scrollTo({
+        top: smsPosition - headerHeight - 20,
+        behavior: 'smooth'
+      });
+    }
+    
+    // SMS Form Submission
+    document.getElementById('smsForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var phone = this.phone.value;
+      fetch('https://sms-send-1082524592245.us-central1.run.app', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          phone: phone,
+          appName: 'Coin Value Identifier',
+          appLink: 'https://apps.apple.com/app/apple-store/id6746510305?pt=649248&ct=smsLink&mt=8'
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('App link sent! Check your phone in a moment.');
+          this.reset();
+        } else {
+          alert('Error sending SMS: ' + data.error);
+        }
+      })
+      .catch(err => console.error(err));
+    });
+    
+    // Show/hide sticky CTA based on scroll position
+    window.addEventListener('scroll', function() {
+      const stickyCta = document.querySelector('.sticky-cta');
+      const heroSection = document.getElementById('home');
+      
+      if (window.scrollY > heroSection.offsetHeight) {
+        stickyCta.style.display = 'block';
+      } else {
+        stickyCta.style.display = 'none';
+      }
+    });
+    
+    // Disable hover for touch devices
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if device is touch-enabled
+      if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        // Get all QR code popups and ensure they're hidden on touch devices
+        const qrPopups = document.querySelectorAll('.qr-popup, .qr-popup-top');
+        qrPopups.forEach(popup => {
+          popup.style.display = 'none';
+        });
+        
+        // Remove hover-related classes and attributes from the buttons
+        const qrButtons = document.querySelectorAll('.get-app-btn, .qr-button, .qr-button-top');
+        qrButtons.forEach(button => {
+          // Make sure hover doesn't interfere with normal button functionality
+          button.style.pointerEvents = 'auto';
+        });
+      }
+    });
+  </script>
+  <!-- 100% privacy-first analytics -->
+  <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+</body>
+</html>
